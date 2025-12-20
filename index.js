@@ -28,6 +28,13 @@ app.use(cors());
 //     console.log("User disconnected:", socket.id);
 //   });
 // });
+app.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    res.json({ message: "I am alive!" });
+  })
+);
+
 
 app.get(
   "/health",
@@ -40,6 +47,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: err.message || "Something went wrong!" });
 });
 
-server.listen(9000, () => {
-  console.log("Server is running on port 9000");
+server.listen(3000, () => {
+  console.log("Server is running on port 3000");
 });
